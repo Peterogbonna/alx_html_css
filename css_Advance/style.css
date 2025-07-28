@@ -1,0 +1,233 @@
+/* --- Global Styles --- */
+/* Set box-sizing globally for easier layout calculations */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif; /* Primary font from Figma */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* General line height */
+    color: #000; /* Default text color, adjust if Figma has a universal body text color */
+}
+
+/* Font Import for Source Sans Pro */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+
+/* If 'Spin Cycle OT' is used and you need to host it: */
+/*
+@font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('../fonts/SpinCycleOT-Regular.woff2') format('woff2'),
+         url('../fonts/SpinCycleOT-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/* --- Header Styling --- */
+header {
+    background-image: url('../images/School Page@2x.jpg'); /* Background image for the header */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    height: 100vh; /* Make header take full viewport height, adjust as per Figma if different */
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Align header content to the top initially */
+    align-items: center; /* Center items horizontally */
+    color: #FFFFFF; /* Text color for header content (white) */
+    padding: 20px; /* Adjust as per Figma */
+    text-align: center; /* Center text within header div */
+}
+
+header nav {
+    width: 80%; /* Adjust based on Figma's content width */
+    max-width: 1000px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the nav horizontally */
+    display: flex;
+    justify-content: space-between; /* Space out logo and nav links */
+    align-items: center; /* Vertically align items */
+    padding-top: 20px; /* Adjust as per Figma for spacing from top */
+}
+
+header nav img {
+    width: 180px; /* Exact width from Figma for logo */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px; /* Spacing between nav items from Figma */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px; /* Font size from Figma */
+    font-weight: 600; /* Font weight from Figma (e.g., SemiBold) */
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+header nav ul li a:hover {
+    opacity: 0.8; /* Subtle hover effect */
+}
+
+/* --- First Section (Hero Content - Get schooled, Learn from the pros) --- */
+/* This section is part of the header's background image in the Figma design,
+   so its styles are nested within the overall header layout. */
+
+/* Main content div in the header, wrapping "Get schooled" and "Learn from pros" */
+header > div:first-of-type { /* This targets the div containing h1, spans, and button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px; /* Adjust to position correctly within the header background */
+    margin-bottom: 50px; /* Space before "Learn from the pros" if it's a separate div */
+    width: 100%; /* Take full width for centering */
+}
+
+header h1 { /* "Get schooled" */
+    font-family: 'Spin Cycle OT', sans-serif; /* Apply specific font for this heading */
+    font-size: 100px; /* Exact size from Figma */
+    font-weight: 900; /* Extra bold/black, adjust as per Figma */
+    color: #FFFFFF;
+    margin-bottom: 20px; /* Adjust spacing as per Figma */
+    text-transform: uppercase;
+}
+
+header > div:first-of-type > span { /* SMILES GRIN LAUGH */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px; /* From Figma */
+    font-weight: 600; /* From Figma */
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 10px; /* Spacing between SMILES GRIN LAUGH */
+}
+
+header button { /* REGISTER FOR FREE button */
+    background-color: #C271FF; /* Button background color from Figma */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 22px; /* Adjust as per Figma for rounded corners */
+    padding: 15px 30px; /* Adjust padding as per Figma */
+    font-size: 16px; /* From Figma */
+    font-weight: 600; /* From Figma */
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-top: 40px; /* Space from the spans above */
+}
+
+header button:hover {
+    opacity: 0.9; /* Slightly transparent on hover */
+}
+
+/* "Learn from the pros" section */
+/* This div is likely still part of the first main section's overall layout */
+header > div:last-of-type { /* Targets the div containing h2 and the 4 profile divs */
+    width: 80%; /* Adjust max-width as per Figma */
+    max-width: 1000px;
+    margin: 50px auto; /* Center it and give space from content above */
+    text-align: center;
+}
+
+header h2 { /* "Learn from the pros" */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px; /* From Figma */
+    font-weight: 900; /* Extra bold/black */
+    color: #FFFFFF;
+    margin-bottom: 50px; /* Space below heading */
+}
+
+header > div:last-of-type > div { /* Container for the four profile divs */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center the profiles */
+    gap: 30px; /* Spacing between profile cards from Figma */
+}
+
+header > div:last-of-type > div > div { /* Individual profile card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px; /* Adjust width as per Figma */
+    text-align: center;
+}
+
+header > div:last-of-type > div img { /* Profile images */
+    width: 150px; /* Diameter from Figma */
+    height: 150px; /* Diameter from Figma */
+    border-radius: 50%; /* Make them perfectly circular */
+    object-fit: cover; /* Crop to fit circle */
+    margin-bottom: 15px; /* Spacing below image */
+}
+
+header > div:last-of-type > div h3 { /* Name of the pro */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px; /* From Figma */
+    font-weight: 900; /* From Figma */
+    color: #FFFFFF;
+    margin-bottom: 5px; /* Spacing below name */
+}
+
+header > div:last-of_type > div p { /* Pro description */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px; /* From Figma */
+    font-weight: 400; /* Regular */
+    color: #FFFFFF;
+    line-height: 1.4;
+}
+
+
+/* --- Media Queries for Responsiveness (Add/Adjust as per Figma) --- */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 60px; /* Smaller font size for mobile */
+    }
+
+    header > div:first-of-type > span {
+        font-size: 24px; /* Smaller font size for mobile */
+        margin: 0 5px;
+    }
+
+    header > div:last-of-type > div {
+        flex-direction: column; /* Stack profiles vertically on smaller screens */
+        gap: 20px; /* Adjust gap */
+    }
+
+    header > div:last-of_type > div > div {
+        width: 80%; /* Make profile cards take more width */
+        max-width: 250px; /* Limit their max width */
+    }
+
+    header nav {
+        flex-direction: column; /* Stack logo and nav vertically */
+        align-items: center;
+        width: 100%;
+    }
+
+    header nav ul {
+        margin-top: 20px;
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 40px; /* Even smaller for very small screens */
+    }
+    header > div:first-of-type > span {
+        font-size: 18px;
+        display: block; /* Make each span a block for vertical stacking */
+        margin: 5px 0;
+    }
+}
