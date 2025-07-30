@@ -1,64 +1,561 @@
 /* --- Global Styles --- */
-/* Set box-sizing globally for easier layout calculations */
+/* Universal box-sizing for easier layout calculations */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif; /* Primary font from Figma */
+    font-family: 'Source Sans Pro', sans-serif; /* Primary font for the project */
     margin: 0;
     padding: 0;
-    line-height: 1.6; /* General line height */
-    color: #000; /* Default text color, adjust if Figma has a universal body text color */
+    line-height: 1.6;
+    color: #000; /* Default text color, adjust per section */
 }
 
-/* Font Import for Source Sans Pro */
+/* Font Import for Source Sans Pro from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
 
-/* If 'Spin Cycle OT' is used and you need to host it: */
-/*
-@font-face {
+/* Font for "Get schooled" heading - Assuming 'Spin Cycle OT' is a custom font.
+   If you have a font file (e.g., SpinCycleOT-Regular.woff2), place it in a 'fonts' folder.
+   If not, you might need to use a fallback or find an alternative. */
+/* @font-face {
     font-family: 'Spin Cycle OT';
     src: url('../fonts/SpinCycleOT-Regular.woff2') format('woff2'),
          url('../fonts/SpinCycleOT-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-*/
+} */
+
 
 /* --- Header Styling --- */
 header {
-    background-image: url('../images/School Page@2x.jpg'); /* Background image for the header */
+    /* Main background image for the entire hero section */
+    background-image: url('./images/object.png'); /* */
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat;
-    height: 100vh; /* Make header take full viewport height, adjust as per Figma if different */
-    display: flex; /* Use flexbox for vertical alignment */
+    min-height: 100vh; /* Make header take at least full viewport height */
+    display: flex;
     flex-direction: column; /* Stack content vertically */
-    justify-content: flex-start; /* Align header content to the top initially */
+    justify-content: space-between; /* Distribute content vertically */
     align-items: center; /* Center items horizontally */
-    color: #FFFFFF; /* Text color for header content (white) */
-    padding: 20px; /* Adjust as per Figma */
-    text-align: center; /* Center text within header div */
+    color: #FFFFFF; /* All text inside header is white */
+    padding: 20px 0; /* Vertical padding */
+    text-align: center; /* Center text within content blocks */
 }
 
-header nav {
+/* --- Global Styles (Review/Centralize) --- */
+/* You already have these, just a reminder for common styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #000; /* Default text color, overridden in sections */
+}
+
+/* Common text colors and font weights as per Figma */
+.text-white {
+    color: #FFFFFF;
+}
+
+.text-purple {
+    color: #C271FF; /* The bright purple accent color */
+}
+
+.font-light {
+    font-weight: 300;
+}
+.font-regular {
+    font-weight: 400;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.font-bold {
+    font-weight: 700;
+}
+.font-black { /* For headings like "Get schooled", "Learn from the pros" etc. */
+    font-weight: 900;
+}
+
+/* --- Quote Section Styling --- */
+.quote-section {
+    background-color: #9933FF; /* The purple background color from Figma */
+    color: #FFFFFF; /* All text inside this section is white */
+    padding: 80px 20px; /* Vertical and horizontal padding (adjust as per Figma) */
+    display: flex; /* Use flexbox for layout of image and content */
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text for small screens */
+    gap: 30px; /* Space between image and quote content */
+}
+
+@media (min-width: 768px) {
+    .quote-section {
+        flex-direction: row; /* Layout as row on larger screens */
+        justify-content: center; /* Center the image and quote content */
+        align-items: center; /* Vertically align items */
+        padding: 80px 50px; /* More horizontal padding on larger screens */
+    }
+}
+
+.quote-image-container img { /* The profile image within the quote section */
+    width: 160px; /* Diameter from Figma */
+    height: 160px; /* Diameter from Figma */
+    border-radius: 50%; /* Make it perfectly circular */
+    object-fit: cover; /* Ensure image covers the circle */
+    flex-shrink: 0; /* Prevent image from shrinking */
+    margin-right: 20px; /* Space between image and quote on larger screens */
+}
+
+@media (max-width: 767px) {
+    .quote-image-container img {
+        margin-right: 0; /* Remove right margin on small screens */
+        margin-bottom: 20px; /* Add bottom margin if stacked */
+    }
+}
+
+
+.quote-content {
+    max-width: 600px; /* Max width for the text content for readability */
+    text-align: left; /* Text alignment from Figma */
+}
+
+.quote-content blockquote {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px; /* From Figma */
+    font-weight: 400; /* Regular weight for the quote text */
+    line-height: 1.5; /* Adjust line height for readability */
+    margin: 0 0 20px 0; /* Spacing below the quote */
+    /* Add quotes using CSS content property or ensure they are in HTML */
+    quotes: "«" "»"; /* CSS for French-style quotes */
+}
+
+.quote-content blockquote::before {
+    content: open-quote; /* French opening quote */
+}
+
+.quote-content blockquote::after {
+    content: close-quote; /* French closing quote */
+}
+
+
+.quote-content h3 { /* NAME */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px; /* From Figma */
+    font-weight: 700; /* Bold from Figma */
+    color: #FFFFFF;
+    margin: 0; /* Remove default margin */
+}
+
+.quote-content p { /* weather presenter */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px; /* From Figma */
+    font-weight: 400; /* Regular from Figma */
+    font-style: italic; /* Looks italicized in Figma */
+    color: #FFFFFF;
+    margin: 0; /* Remove default margin */
+}
+
+/* --- Responsive adjustments for Quote Section --- */
+@media (max-width: 767px) {
+    .quote-section {
+        flex-direction: column; /* Stack image and text vertically on small screens */
+        text-align: center; /* Center text when stacked */
+    }
+
+    .quote-content {
+        text-align: center; /* Center quote text on smaller screens */
+    }
+}
+
+/* --- Most Popular Tutorials Section Styling --- */
+.tutorials-section {
+    background-color: #FFFFFF; /* White background for this section */
+    padding: 80px 20px; /* Adjust padding as per Figma */
+    text-align: center; /* Center the main heading */
+}
+
+.tutorials-section h2 { /* "Most popular tutorials" heading */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px; /* From Figma */
+    font-weight: 900; /* Extra bold/black */
+    color: #000000; /* Black text */
+    margin-bottom: 50px; /* Space below heading */
+}
+
+.tutorials-section h2 span { /* For the word "popular" to be purple */
+    color: #C271FF; /* The bright purple accent color */
+}
+
+.tutorial-grid { /* Container for the video cards */
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid for 4 columns */
+    gap: 30px; /* Spacing between cards as per Figma */
+    width: 80%; /* Adjust content width */
+    max-width: 1100px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the grid */
+}
+
+.tutorial-card { /* Individual video tutorial card */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left within the card */
+    text-align: left;
+    background-color: #FFFFFF; /* White background for cards themselves */
+    border-radius: 5px; /* Subtle border-radius if any in Figma, otherwise remove */
+    overflow: hidden; /* Ensures image corners are rounded if card has border-radius */
+    color: #000000; /* Default text color for card content */
+    position: relative; /* For positioning the play button */
+}
+
+.tutorial-card img:first-of-type { /* The main tutorial image (Bitmap (1).png, etc.) */
+    width: 100%; /* Make image fill card width */
+    height: 150px; /* Fixed height from Figma */
+    object-fit: cover; /* Cover the area */
+    display: block;
+}
+
+/* Play button overlay */
+.tutorial-card::before {
+    content: "\f04b"; /* Font Awesome play icon code (fa-play) */
+    font-family: "Font Awesome 5 Free"; /* Use Font Awesome font */
+    font-weight: 900; /* Solid icon */
+    position: absolute;
+    top: 50px; /* Adjust vertical position over the image */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px; /* Size of the play button */
+    color: #FFFFFF; /* White color for the icon */
+    z-index: 1; /* Ensure it's above the image */
+    pointer-events: none; /* Allows clicks to pass through to the underlying element if needed */
+}
+
+.tutorial-card h3 { /* Tutorial Title (e.g., "Diagonal Smile") */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px; /* From Figma */
+    font-weight: 900; /* Bold from Figma */
+    margin: 15px 15px 10px 15px; /* Padding inside card */
+    color: #000000;
+}
+
+.tutorial-card p { /* Tutorial Description */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* From Figma */
+    font-weight: 400; /* Regular */
+    color: #6C6C6C; /* Lighter grey for description */
+    margin: 0 15px 15px 15px; /* Padding inside card */
+    line-height: 1.5;
+}
+
+.tutor-info { /* Container for tutor image and name */
+    display: flex;
+    align-items: center;
+    margin: 0 15px 10px 15px; /* Padding inside card */
+}
+
+.tutor-info img { /* Tutor profile image */
+    width: 30px; /* Diameter from Figma */
+    height: 30px; /* Diameter from Figma */
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    margin-right: 10px; /* Space between image and name */
+}
+
+.tutor-info h4 { /* Tutor Name (e.g., "Phillip Massey") */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* From Figma */
+    font-weight: 900; /* Bold from Figma */
+    color: #C271FF; /* Purple color for name */
+    margin: 0;
+}
+
+.rating { /* Star ratings container */
+    display: flex; /* Keep stars in a row */
+    margin: 0 15px 10px 15px; /* Padding inside card */
+}
+
+.rating .fa-star { /* Individual star icon */
+    color: #C271FF; /* Purple color for filled stars */
+    font-size: 14px; /* Size of the stars */
+    margin-right: 2px; /* Small gap between stars */
+}
+
+/* If some stars are unfilled, you would typically use a different color or a different icon class */
+/* For example, if you had a half-star or empty star:
+.rating .fa-star.empty {
+    color: #CCCCCC;
+}
+*/
+
+.tutorial-duration { /* "8 min" text */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* From Figma */
+    font-weight: 400; /* Regular */
+    color: #C271FF; /* Purple color for duration */
+    margin: 0 15px 20px 15px; /* Padding inside card, pushing it down */
+}
+
+/* --- Responsive Adjustments for Tutorials Section --- */
+@media (max-width: 1024px) {
+    .tutorial-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust min-width for more columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .tutorials-section h2 {
+        font-size: 28px;
+    }
+    .tutorial-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow fewer but wider cards on tablets */
+        width: 90%; /* More width */
+    }
+}
+
+@media (max-width: 480px) {
+    .tutorials-section h2 {
+        font-size: 24px;
+    }
+    .tutorial-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small mobile */
+        width: 90%; /* More width */
+    }
+    .tutorial-card {
+        align-items: center; /* Center content horizontally within card */
+        text-align: center;
+    }
+    .tutorial-card h3,
+    .tutorial-card p,
+    .tutor-info,
+    .rating,
+    .tutorial-duration {
+        margin-left: auto;
+        margin-right: auto; /* Center these elements within the card when stacked */
+    }
+}
+
+/* --- Free Membership Section Styling --- */
+.membership-section {
+    background-color: #282A36; /* Dark background color from Figma */
+    color: #FFFFFF; /* Default text color for this section */
+    padding: 80px 20px; /* Adjust padding as per Figma */
+    text-align: center; /* Center content horizontally */
+}
+
+.membership-section h2 { /* "Free membership" heading */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px; /* From Figma */
+    font-weight: 900; /* Extra bold/black */
+    color: #FFFFFF; /* White text for the heading */
+    margin-bottom: 50px; /* Space below heading */
+}
+
+.membership-grid { /* Container for the four membership items */
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid for 4 columns */
+    gap: 30px; /* Spacing between items */
+    max-width: 1000px; /* Max width for the grid */
+    margin: 0 auto 50px auto; /* Center the grid and add space below */
+}
+
+.membership-item { /* Individual membership item (smile icon + text) */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally within each item */
+    text-align: center;
+}
+
+.membership-item img { /* The smile icon (smile.png) */
+    width: 100px; /* Diameter from Figma (adjust if needed) */
+    height: 100px; /* Diameter from Figma (adjust if needed) */
+    object-fit: contain; /* Ensure the entire icon is visible */
+    margin-bottom: 20px; /* Space below the icon */
+}
+
+.membership-item h3 { /* "Lorem ipsum" title */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px; /* From Figma */
+    font-weight: 900; /* Bold */
+    color: #FFFFFF; /* White text */
+    margin: 0 0 10px 0; /* Spacing */
+}
+
+.membership-item p { /* Description text */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* From Figma */
+    font-weight: 400; /* Regular */
+    color: #FFFFFF; /* White text */
+    margin: 0;
+    line-height: 1.5;
+    max-width: 200px; /* Limit width for readability */
+}
+
+/* --- Responsive Adjustments for Membership Section --- */
+@media (max-width: 1024px) {
+    .membership-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust min-width */
+    }
+}
+
+@media (max-width: 768px) {
+    .membership-section h2 {
+        font-size: 28px;
+    }
+    .membership-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow fewer but wider items */
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-section h2 {
+        font-size: 24px;
+    }
+    .membership-grid {
+        grid-template-columns: 1fr; /* Stack items vertically on small mobile */
+        width: 90%;
+    }
+}
+
+/* --- F.A.Q. Section Styling --- */
+.faq-section {
+    background-color: #FFFFFF; /* White background for the FAQ section */
+    padding: 80px 20px; /* Adjust padding as per Figma */
+    text-align: center; /* Center the main heading */
+}
+
+.faq-section h2 { /* "F.A.Q." heading */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px; /* From Figma */
+    font-weight: 900; /* Extra bold/black */
+    color: #C271FF; /* Purple color for the heading */
+    margin-bottom: 50px; /* Space below heading */
+}
+
+.faq-content { /* Container for the two columns of FAQ items */
+    display: grid; /* Use CSS Grid for a column layout */
+    grid-template-columns: 1fr; /* Default to one column on small screens */
+    gap: 30px; /* Spacing between columns and rows */
+    max-width: 1000px; /* Max width for the FAQ content */
+    margin: 0 auto; /* Center the content grid */
+    text-align: left; /* Align text within the grid items to the left */
+}
+
+@media (min-width: 768px) {
+    .faq-content {
+        grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+    }
+}
+
+.faq-column { /* Individual column wrapper (if HTML structure has them) */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Spacing between FAQ items within a column */
+}
+
+.faq-item h3 { /* Question title (e.g., "How does this work?") */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px; /* From Figma */
+    font-weight: 700; /* Bold from Figma */
+    color: #000000; /* Black text */
+    margin: 0 0 10px 0; /* Space below the question */
+}
+
+.faq-item p { /* Answer text */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* From Figma */
+    font-weight: 400; /* Regular */
+    color: #000000; /* Black text */
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- Footer Styling --- */
+footer {
+    background-color: #282A36; /* Dark background color from Figma */
+    padding: 40px 20px; /* Adjust padding as per Figma */
+    color: #FFFFFF; /* Default white text color for copyright */
+    text-align: center; /* Center content by default for smaller screens */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically by default (mobile first) */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Space between elements on mobile */
+    max-width: 1100px; /* Limit content width */
+    margin: 0 auto; /* Center the content horizontally */
+    width: 100%; /* Ensure it takes full available width */
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row; /* Layout as row on larger screens */
+        justify-content: space-between; /* Distribute items to the ends */
+        align-items: center; /* Vertically align items in the middle */
+    }
+}
+
+.footer-logo { /* Styles for the logo, now a direct child of footer-content */
+    width: 120px; /* Adjust logo size as per Figma */
+    height: auto;
+    filter: brightness(0) invert(1); /* Makes the logo white assuming it's black in original */
+}
+
+/* This pushes the copyright text to the center by taking up available space on its left */
+@media (min-width: 768px) {
+    .copyright-text {
+        margin-left: auto; /* Pushes it towards the center */
+        margin-right: auto; /* Pushes it towards the center from the right */
+        /* Combined, these center the item when it's between two auto-margined items or when space-between is used on the parent. */
+    }
+}
+
+
+.social-icons {
+    display: flex; /* Arrange icons in a row */
+    gap: 20px; /* Space between icons */
+}
+
+.social-icons a {
+    color: #FFFFFF; /* White color for social media icons */
+    font-size: 24px; /* Size of the icons */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icons a:hover {
+    color: #C271FF; /* Purple hover effect */
+}
+
+.copyright-text { /* Copyright text using its specific class */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* From Figma */
+    font-weight: 400; /* Regular */
+    /* Mobile margins are handled by flexbox gap and align-items center on footer-content */
+    margin: 0; /* Reset default margins */
+}
+
+/* Navigation Bar */
+.navbar {
     width: 80%; /* Adjust based on Figma's content width */
     max-width: 1000px; /* Max width for larger screens */
     margin: 0 auto; /* Center the nav horizontally */
     display: flex;
     justify-content: space-between; /* Space out logo and nav links */
     align-items: center; /* Vertically align items */
-    padding-top: 20px; /* Adjust as per Figma for spacing from top */
+    padding: 0 20px; /* Horizontal padding */
 }
 
-header nav img {
+.navbar .logo {
     width: 180px; /* Exact width from Figma for logo */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain;
 }
 
-header nav ul {
+.navbar ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -66,7 +563,7 @@ header nav ul {
     gap: 40px; /* Spacing between nav items from Figma */
 }
 
-header nav ul li a {
+.navbar ul li a {
     text-decoration: none;
     color: #FFFFFF;
     font-size: 16px; /* Font size from Figma */
@@ -75,70 +572,86 @@ header nav ul li a {
     transition: opacity 0.3s ease;
 }
 
-header nav ul li a:hover {
+.navbar ul li a:hover {
     opacity: 0.8; /* Subtle hover effect */
 }
 
-/* --- First Section (Hero Content - Get schooled, Learn from the pros) --- */
-/* This section is part of the header's background image in the Figma design,
-   so its styles are nested within the overall header layout. */
-
-/* Main content div in the header, wrapping "Get schooled" and "Learn from pros" */
-header > div:first-of-type { /* This targets the div containing h1, spans, and button */
+/* Hero Content (Get schooled, SMILES GRIN LAUGH, Register button) */
+.hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px; /* Adjust to position correctly within the header background */
-    margin-bottom: 50px; /* Space before "Learn from the pros" if it's a separate div */
-    width: 100%; /* Take full width for centering */
+    text-align: center;
+    margin-top: 50px; /* Adjust to position correctly within the header background */
+    margin-bottom: 50px; /* Space before "Learn from the pros" */
+    padding: 0 20px; /* Ensure content doesn't hit edges on small screens */
+    flex-grow: 1; /* Allow this section to take available space */
+    justify-content: center; /* Vertically center content if there's extra space */
 }
 
-header h1 { /* "Get schooled" */
-    font-family: 'Spin Cycle OT', sans-serif; /* Apply specific font for this heading */
+.hero-content h1 { /* "Get schooled" */
+    /* If 'Spin Cycle OT' is used, uncomment below and ensure font is linked/available */
+    /* font-family: 'Spin Cycle OT', sans-serif; */
+    font-family: 'Source Sans Pro', sans-serif; /* Fallback if Spin Cycle OT is not available */
     font-size: 100px; /* Exact size from Figma */
     font-weight: 900; /* Extra bold/black, adjust as per Figma */
     color: #FFFFFF;
-    margin-bottom: 20px; /* Adjust spacing as per Figma */
+    margin: 0 0 20px 0; /* Adjust spacing as per Figma */
     text-transform: uppercase;
 }
 
-header > div:first-of-type > span { /* SMILES GRIN LAUGH */
+.hero-content .hero-tagline span { /* SMILES GRIN LAUGH */
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 32px; /* From Figma */
     font-weight: 600; /* From Figma */
     color: #FFFFFF;
     text-transform: uppercase;
-    margin: 0 10px; /* Spacing between SMILES GRIN LAUGH */
+    margin: 0 10px; /* Spacing between SMILES GRIN LAUGH words */
 }
 
-header button { /* REGISTER FOR FREE button */
-    background-color: #C271FF; /* Button background color from Figma */
-    color: #FFFFFF;
-    border: none;
-    border-radius: 22px; /* Adjust as per Figma for rounded corners */
-    padding: 15px 30px; /* Adjust padding as per Figma */
-    font-size: 16px; /* From Figma */
-    font-weight: 600; /* From Figma */
+/* --- Common Button Styles --- */
+.btn-purple {
+    background-color: #C271FF; /* Purple background from Figma */
+    color: #FFFFFF; /* White text color */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px; /* Adjust as per Figma */
+    font-weight: 700; /* Bold */
     text-transform: uppercase;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 12px 30px; /* Vertical and horizontal padding */
     cursor: pointer;
-    transition: opacity 0.3s ease;
-    margin-top: 40px; /* Space from the spans above */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    text-decoration: none; /* Remove underline if used on <a> tags */
+    display: inline-block; /* Allows padding and margin to work correctly */
 }
 
-header button:hover {
+.btn-purple:hover {
+  background-color: #af50f9; /* Slightly danker purple on hover */
+}
+
+/* Update your existing header button selector to use this class */
+/* Example: If your header button was '.register-button' */
+/* Remove existing .register-button styles and add this class to the HTML */
+/* .header .register-button { /* Keep only specific header button overrides here if any */ /* } */ 
+.btn-register { /* Specific button for REGISTER FOR FREE */
+    margin-top: 40px; /* Space from the tagline above */
+}
+
+.btn:hover {
     opacity: 0.9; /* Slightly transparent on hover */
 }
 
-/* "Learn from the pros" section */
-/* This div is likely still part of the first main section's overall layout */
-header > div:last-of-type { /* Targets the div containing h2 and the 4 profile divs */
-    width: 80%; /* Adjust max-width as per Figma */
-    max-width: 1000px;
-    margin: 50px auto; /* Center it and give space from content above */
+/* "Learn from the pros" section styling */
+.pros-section {
+    width: 80%; /* Adjust content width as per Figma */
+    max-width: 1000px; /* Max width for consistency */
+    margin: 50px auto 50px auto; /* Center it and give space from content above/below */
     text-align: center;
+    padding-bottom: 50px; /* Spacing from the bottom of the header */
 }
 
-header h2 { /* "Learn from the pros" */
+.pros-section h2 { /* "Learn from the pros" heading */
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 32px; /* From Figma */
     font-weight: 900; /* Extra bold/black */
@@ -146,14 +659,14 @@ header h2 { /* "Learn from the pros" */
     margin-bottom: 50px; /* Space below heading */
 }
 
-header > div:last-of-type > div { /* Container for the four profile divs */
+.pros-grid { /* Container for the four profile divs */
     display: flex;
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     justify-content: center; /* Center the profiles */
     gap: 30px; /* Spacing between profile cards from Figma */
 }
 
-header > div:last-of-type > div > div { /* Individual profile card */
+.pro-card { /* Individual profile card */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -161,7 +674,7 @@ header > div:last-of-type > div > div { /* Individual profile card */
     text-align: center;
 }
 
-header > div:last-of-type > div img { /* Profile images */
+.pro-card img { /* Profile images */
     width: 150px; /* Diameter from Figma */
     height: 150px; /* Diameter from Figma */
     border-radius: 50%; /* Make them perfectly circular */
@@ -169,65 +682,86 @@ header > div:last-of-type > div img { /* Profile images */
     margin-bottom: 15px; /* Spacing below image */
 }
 
-header > div:last-of-type > div h3 { /* Name of the pro */
+.pro-card h3 { /* Name of the pro */
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px; /* From Figma */
     font-weight: 900; /* From Figma */
     color: #FFFFFF;
-    margin-bottom: 5px; /* Spacing below name */
+    margin: 0 0 5px 0; /* Spacing below name */
 }
 
-header > div:last-of_type > div p { /* Pro description */
+.pro-card p { /* Pro description */
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px; /* From Figma */
     font-weight: 400; /* Regular */
     color: #FFFFFF;
     line-height: 1.4;
+    margin: 0;
 }
 
+/* --- Media Queries for Responsiveness (Basic adjustments) --- */
 
-/* --- Media Queries for Responsiveness (Add/Adjust as per Figma) --- */
-
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 60px; /* Smaller font size for mobile */
-    }
-
-    header > div:first-of-type > span {
-        font-size: 24px; /* Smaller font size for mobile */
-        margin: 0 5px;
-    }
-
-    header > div:last-of-type > div {
-        flex-direction: column; /* Stack profiles vertically on smaller screens */
-        gap: 20px; /* Adjust gap */
-    }
-
-    header > div:last-of_type > div > div {
-        width: 80%; /* Make profile cards take more width */
-        max-width: 250px; /* Limit their max width */
-    }
-
-    header nav {
-        flex-direction: column; /* Stack logo and nav vertically */
+@media (max-width: 767px) {
+    .navbar {
+        flex-direction: column; /* Stack logo and nav links vertically */
         align-items: center;
-        width: 100%;
+        padding-top: 10px;
     }
 
-    header nav ul {
+    .navbar ul {
         margin-top: 20px;
         flex-direction: column; /* Stack nav items vertically */
         gap: 15px;
     }
+
+    .hero-content h1 {
+        font-size: 70px; /* Adjust for tablet */
+    }
+
+    .hero-content .hero-tagline span {
+        font-size: 24px; /* Adjust for tablet */
+    }
+
+    .pros-section h2 {
+        font-size: 28px;
+    }
+
+    .pros-grid {
+        gap: 20px; /* Reduce gap on smaller screens */
+    }
 }
 
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 40px; /* Even smaller for very small screens */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
     }
-    header > div:first-of-type > span {
-        font-size: 18px;
+    .navbar .logo {
+        width: 150px; /* Smaller logo */
+    }
+    .navbar ul {
+        gap: 10px;
+    }
+    .hero-content h1 {
+        font-size: 48px; /* Smaller for mobile */
+    }
+    .hero-content .hero-tagline span {
+        font-size: 20px;
         display: block; /* Make each span a block for vertical stacking */
         margin: 5px 0;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    .pros-section {
+        width: 90%; /* More width on mobile */
+    }
+    .pros-section h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .pro-card {
+        width: 100%; /* Allow cards to take full width */
+        max-width: 250px; /* But cap them */
     }
 }
