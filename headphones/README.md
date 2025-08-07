@@ -1,39 +1,49 @@
-My First Portfolio
 
-Welcome to my first web development project! This project is built using only HTML, CSS, and JavaScript following strict rules to ensure clean, valid, and compliant code.
+Project: Headphones
+This project is a static web page for a company selling headphones, developed as part of the alx_html_css curriculum. The web page is designed to be fully responsive, with a distinct mobile layout for smaller screens.
 
-📁 Project Structure
+Project Structure
+The project files are located in the headphones directory within the alx_html_css repository.
 
-html_basic/ - Contains foundational HTML files like base_index.html.
+alx_html_css/
+├── headphones/
+│   ├── README.md   (This file)
+│   ├── index.html  (The main web page)
+│   ├── style.css   (The stylesheet)
+│   ├── images/     (Directory for project images)
+│   └── ...
 
-README.md - This file, providing documentation and project overview.
+Technologies Used
+HTML5: For the structure and content of the web page.
 
-✅ Requirements
+CSS3: For all styling, layout, and responsive design.
 
-Built using Visual Studio Code (recommended editor).
+Features
+Responsive Design: The web page is optimized for both desktop and mobile viewing. The layout gracefully switches to a mobile-specific version when the screen width is 480px or less.
 
-All files end with a new line.
+Hero Section: A prominent introductory section with a clear call-to-action.
 
-Strictly no external libraries or frameworks (e.g., Bootstrap, React, NodeJS, VueJS).
+"What we do" Section: Details the company's offerings and mission.
 
-Fully W3C-compliant code — validated using W3C Validator.
+Results Section: Showcases key achievements and statistics.
 
-🌐 Technologies Used
+Contact Section: A form for users to get in touch.
 
-HTML5 for structure
+Footer: A clean and professional footer with social media links.
 
-CSS3 for styling
+Interactions and Styling
+The design adheres to the following interaction and styling rules:
 
-JavaScript (Vanilla) for interactivity
+Maximum Content Width: The main content of the page is centered with a maximum width of 1000px.
 
-📌 Notes
+Links (<a>): When a link is hovered over or is active, its color changes to #FF6565.
 
-This project is a starting point for future web portfolio enhancements.
+Buttons (<button>): When a button is hovered over or is active, its opacity changes to 0.9 for a subtle visual feedback.
 
-Accessibility, responsiveness, and clean code practices are top priorities.
+Fonts: The design uses the Source Sans Pro and Spin Cycle OT fonts. If these fonts are not pre-installed on your system, you can find them via the provided links.
 
-🚀 How to View
+Source Sans Pro
 
-Open the HTML files in your browser or use a local development server such as Live Server (VS Code Extension).
+Spin Cycle OT
 
-Built with 💻 by Peter Ogbonna.
+Visual Fidelity: All visual elements, colors, and spacing are implemented to match the Figma prototype as closely as possible.
