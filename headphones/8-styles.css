@@ -1,0 +1,589 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('images/spin-cycle.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'holberton_school-icon';
+  src:  url('fonts/holberton_school-icon.eot?sq4eq4');
+  src:  url('fonts/holberton_school-icon.eot?sq4eq4#iefix') format('embedded-opentype'),
+        url('fonts/holberton_school-icon.ttf?sq4eq4') format('truetype'),
+        url('fonts/holberton_school-icon.woff?sq4eq4') format('woff'),
+        url('fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="holberton_school-icon-"], [class*=" holberton_school-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'holberton_school-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.holberton_school-icon-arrow_1:before {
+  content: "\e900";
+}
+.holberton_school-icon-arrow_2:before {
+  content: "\e901";
+}
+.holberton_school-icon-arrow_3:before {
+  content: "\e902";
+}
+.holberton_school-icon-arrow_4:before {
+  content: "\e903";
+}
+.holberton_school-icon-arrow_5:before {
+  content: "\e904";
+}
+.holberton_school-icon-check:before {
+  content: "\e905";
+}
+.holberton_school-icon-ic_bag:before {
+  content: "\e906";
+}
+.holberton_school-icon-ic_cart:before {
+  content: "\e907";
+}
+.holberton_school-icon-ic_facebook:before {
+  content: "\e908";
+}
+.holberton_school-icon-ic_hearing:before {
+  content: "\e909";
+}
+.holberton_school-icon-ic_headphones:before {
+  content: "\e915";
+}
+.holberton_school-icon-ic_instagram:before {
+  content: "\e90a";
+}
+.holberton_school-icon-ic_laptop:before {
+  content: "\e90b";
+}
+.holberton_school-icon-ic_money:before {
+  content: "\e90c";
+}
+.holberton_school-icon-ic_music:before {
+  content: "\e90d";
+}
+.holberton_school-icon-ic_sound:before {
+  content: "\e90e";
+}
+.holberton_school-icon-ic_twitter:before {
+  content: "\e90f";
+}
+.holberton_school-icon-ic_video:before {
+  content: "\e910";
+}
+.holberton_school-icon-menu:before {
+  content: "\e911";
+}
+.holberton_school-icon-search_1:before {
+  content: "\e912";
+}
+.holberton_school-icon-search_2:before {
+  content: "\e913";
+}
+.holberton_school-icon-star:before {
+  content: "\e914";
+}
+/* * ----------------------------------------------------
+ * Project Foundations: Reset, Variables, and Generic Selectors
+ * ----------------------------------------------------
+ */
+
+/* Minimal CSS reset for consistent cross-browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Use CSS variables for easy theme changes */
+:root {
+    --primary-color: #FF6565;
+    --dark-bg-color: #071629;
+    --light-bg-color: #FFFFFF;
+    --light-text-color: #FFFFFF;
+    --dark-text-color: #161619;
+    --max-content-width: 1000px;
+}
+
+/* Generic body and link styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--dark-text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ----------------------------------------------------
+ * Reusable Components and Layouts
+ * ----------------------------------------------------
+ */
+
+/* General container for centering content with max width */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Button style with hover effect */
+.button-cta {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 22px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.button-cta:hover, .button-cta:active {
+    opacity: 0.9;
+}
+
+/* Link hover/active styling */
+.nav-links a:hover,
+.nav-links a:active {
+    color: var(--primary-color);
+}
+
+/* ----------------------------------------------------
+ * Header Section
+ * ----------------------------------------------------
+ */
+
+.hero-section {
+    background-color: var(--dark-bg-color);
+    background-image: url('images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text-color);
+    padding-top: 30px;
+    padding-bottom: 250px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    width: 20px;
+    height: 16px;
+}
+
+.nav-icon,
+.nav-icon::before,
+.nav-icon::after {
+    display: block;
+    background-color: var(--light-text-color);
+    height: 2px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.nav-icon::before,
+.nav-icon::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-icon::before {
+    top: -6px;
+}
+
+.nav-icon::after {
+    top: 6px;
+    
+}
+
+/* JavaScript controlled menu icon animation */
+.menu-icon.active .nav-icon {
+    background-color: transparent;
+}
+
+.menu-icon.active .nav-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-icon.active .nav-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.hero-content {
+    padding-top: 150px;
+}
+
+.hero-content h1 {
+    font-family: 'Spin Cycle OT', sans-serif;
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.hero-bottom-text {
+    max-width: 600px;
+    margin: 100px auto 0;
+}
+
+.hero-bottom-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ----------------------------------------------------
+ * "What we do..." Section
+ * ----------------------------------------------------
+ */
+.what-we-do-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Spin Cycle OT', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    max-width: 500px;
+    margin: 0 auto 50px auto;
+    line-height: 1.5;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.service-item {
+    flex-basis: 25%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.service-item span {
+    font-family: 'holberton_school-icon' !important;
+    font-size: 80px;
+    color: var(--primary-color);
+}
+
+.service-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.service-description {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ----------------------------------------------------
+ * "Our results" Section
+ * ----------------------------------------------------
+ */
+
+.results-section {
+    background-color: var(--dark-bg-color);
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text-color);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.results-section .section-title,
+.results-section .section-description {
+    color: var(--light-text-color);
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.pentagon {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pentagon span {
+    font-family: 'Spin Cycle OT', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--light-text-color);
+}
+
+/* ----------------------------------------------------
+ * "Contact us" Section
+ * ----------------------------------------------------
+ */
+.contact-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-section .section-title {
+    margin-bottom: 50px;
+}
+
+.contact-section form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    color: #C2C2C2;
+    transition: all 0.2s ease;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    border-bottom: 1px solid #C2C2C2;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    color: var(--dark-text-color);
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--primary-color);
+}
+
+.contact-section .button-cta {
+    display: block;
+    width: 150px;
+    margin: 50px auto 0 auto;
+}
+
+/* ----------------------------------------------------
+ * Footer Section
+ * ----------------------------------------------------
+ */
+.footer {
+    background-color: var(--dark-bg-color);
+    color: var(--light-text-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-content .logo img {
+    height: 30px;
+}
+
+.social-icons a {
+    font-family: 'holberton_school-icon' !important;
+    font-size: 20px;
+    color: var(--light-text-color);
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:last-child {
+    margin-right: 0;
+}
+
+.social-icons a:hover,
+.social-icons a:active {
+    color: var(--primary-color);
+}
+
+.copyright {
+    font-size: 12px;
+    color: #A1A1A1;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* ----------------------------------------------------
+ * Mobile Responsive Styles
+ * ----------------------------------------------------
+ */
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        margin-left: auto;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--dark-bg-color);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* JavaScript controlled menu display */
+    .nav-links.menu-open {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-bottom: 15px;
+    }
+
+    .hero-bottom-text {
+        display: none;
+    }
+
+    .hero-content {
+        padding-top: 100px;
+    }
+
+    .what-we-do-section {
+        padding: 60px 0;
+    }
+
+    .what-we-do-section .section-description {
+        margin: 0 auto 30px auto;
+    }
+
+    .services-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service-item {
+        flex-basis: auto;
+    }
+    
+    .results-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,234 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('images/spin-cycle.otf') format('opentype');
+}
+
+/* * ----------------------------------------------------
+ * Project Foundations: Reset, Variables, and Generic Selectors
+ * ----------------------------------------------------
+ */
+
+/* Minimal CSS reset for consistent cross-browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Use CSS variables for easy theme changes */
+:root {
+    --primary-color: #FF6565;
+    --dark-bg-color: #071629;
+    --light-bg-color: #FFFFFF;
+    --light-text-color: #FFFFFF;
+    --dark-text-color: #161619;
+    --max-content-width: 1000px;
+}
+
+/* Generic body and link styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--dark-text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ----------------------------------------------------
+ * Reusable Components and Layouts
+ * ----------------------------------------------------
+ */
+
+/* General container for centering content with max width */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Button style with hover effect */
+.button-cta {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 22px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.button-cta:hover, .button-cta:active {
+    opacity: 0.9;
+}
+
+/* Link hover/active styling */
+.nav-links a:hover,
+.nav-links a:active {
+    color: var(--primary-color);
+}
+
+/* ----------------------------------------------------
+ * Header Section
+ * ----------------------------------------------------
+ */
+
+.hero-section {
+    background-color: var(--dark-bg-color);
+    background-image: url('images/headphones_hero_1.jpg'); /* Placeholder image from the Figma */
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text-color);
+    padding-top: 30px;
+    padding-bottom: 250px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo img {
+    height: 30px; /* Adjust as needed */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.menu-toggle {
+    display: none; /* Hide the checkbox */
+}
+
+/* The hamburger menu icon is hidden by default for desktop */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    width: 20px;
+    height: 16px;
+}
+
+.nav-icon,
+.nav-icon::before,
+.nav-icon::after {
+    display: block;
+    background-color: var(--light-text-color);
+    height: 2px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.nav-icon::before,
+.nav-icon::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-icon::before {
+    top: -6px;
+}
+
+.nav-icon::after {
+    top: 6px;
+}
+
+.hero-content {
+    padding-top: 150px;
+}
+
+.hero-content h1 {
+    font-family: 'Spin Cycle OT', sans-serif;
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.hero-bottom-text {
+    max-width: 600px;
+    margin: 100px auto 0;
+}
+
+.hero-bottom-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ----------------------------------------------------
+ * Mobile Responsive Styles
+ * ----------------------------------------------------
+ */
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        margin-left: auto;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--dark-bg-color);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        margin-bottom: 15px;
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .menu-toggle:checked ~ .menu-icon .nav-icon {
+        background-color: transparent;
+    }
+
+    .menu-toggle:checked ~ .menu-icon .nav-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-toggle:checked ~ .menu-icon .nav-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .hero-bottom-text {
+        display: none; /* Hide the bottom text on mobile */
+    }
+
+    .hero-content {
+        padding-top: 100px;
+    }
+}
